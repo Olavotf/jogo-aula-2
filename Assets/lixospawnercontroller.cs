@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class lixospawnercontroller : MonoBehaviour
 {
@@ -12,9 +13,13 @@ public class lixospawnercontroller : MonoBehaviour
     public int MaxPoints;
     public int points = 0;
 
+    public TMP_Text pointsText;
+    public TMP_Text victoryText;
+
     void Start()
     {
         StartCoroutine(SpawnRoutine());
+        victoryText.gameObject.SetActive(false);
     }
 
     void Update()
@@ -34,4 +39,22 @@ public class lixospawnercontroller : MonoBehaviour
             yield return new WaitForSeconds(timer);
         }
     }
+
+public void AddToPoints(int value)
+{
+    points += value;
+    pointsText.text = "Points: "+points.ToString();
+}
+
+IEnumerator SpawnRoutine() {
+while (points<MaxPoints) {
+Instantiate(Lixo,
+new Vector3 (Random.Range(-maximumX, maximumX+1),
+fixedy,
+fixedZ),
+Quaternion.identity);
+yield return new WaitForSeconds (timer);
+}
+victoryText.gameObject.SetActive(true);
+}
 }
