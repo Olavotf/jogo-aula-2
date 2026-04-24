@@ -27,34 +27,24 @@ public class lixospawnercontroller : MonoBehaviour
     }
 
     IEnumerator SpawnRoutine()
+{
+    while (points < MaxPoints)
     {
-        while (points < MaxPoints)
-        {
-            Instantiate(Lixo,
-                new Vector3(Random.Range(-maximumX, maximumX + 1),
-                fixedY,
-                fixedZ),
-                Quaternion.identity);
-        
-            yield return new WaitForSeconds(timer);
-        }
+        Instantiate(Lixo,
+            new Vector3(Random.Range(-maximumX, maximumX + 1),
+            fixedY,
+            fixedZ),
+            Quaternion.identity);
+
+        yield return new WaitForSeconds(timer);
     }
+
+    victoryText.gameObject.SetActive(true);
+}
 
 public void AddToPoints(int value)
 {
     points += value;
     pointsText.text = "Points: "+points.ToString();
-}
-
-IEnumerator SpawnRoutine() {
-while (points<MaxPoints) {
-Instantiate(Lixo,
-new Vector3 (Random.Range(-maximumX, maximumX+1),
-fixedy,
-fixedZ),
-Quaternion.identity);
-yield return new WaitForSeconds (timer);
-}
-victoryText.gameObject.SetActive(true);
 }
 }
