@@ -762,7 +762,7 @@ MonoBehaviour:
   fixedZ: 0
   timer: 2
   Lixo: {fileID: 214840703}
-  MaxPoints: 5
+  MaxPoints: 3
   points: 0
   pointsText: {fileID: 2108423523}
   victoryText: {fileID: 2037658178}
@@ -1018,7 +1018,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ganhou zaralhoooooo!
+  m_text: Ganhou!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
